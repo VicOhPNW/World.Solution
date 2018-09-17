@@ -9,19 +9,31 @@ namespace World.Models
     {
         private int _id;
         private string _cityName;
-        private List<City> _city;
 
-        public City(string CityName, int Id=0)
+        public City(int id, string cityName)
         {
-            _id = Id;
-            _cityName = CityName;
+            _id = id;
+            _cityName = cityName;
         }
 
-        public int GetId() => _id;
-        public void SetID(int Id) => _id = Id;
+        public int GetId()
+        {
+            return _id;
+        }
+        public void SetId(int Id)
+        {
+            _id = Id;
+        }
 
-        public string GetCityName() => _cityName;
-        public void SetCityName() => _cityName = CityName;
+        public string GetCityName()
+        {
+            return _cityName;
+        }
+        public void SetCityName(string cityName)
+        {
+            _cityName = cityName;
+        }
+
 
         public static List<City> GetAll()
         {
@@ -29,13 +41,13 @@ namespace World.Models
             MySqlConnection conn = DB.Connection();
             conn.Open();
             MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-            cmd.CommandText = @"SELECT * FROM city;"
+            cmd.CommandText = @"SELECT * FROM city;";
             MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
             while(rdr.Read())
             {
                 int cityId = rdr.GetInt32(0);
                 string cityName = rdr.GetString(1);
-                City newCity = new City(cityName, cityId);
+                City newCity = new City(cityId, cityName);
                 allCities.Add(newCity);
             }
             conn.Close();

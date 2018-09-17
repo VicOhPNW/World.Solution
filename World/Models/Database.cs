@@ -1,5 +1,5 @@
 using System;
-using MySql.Data.MySqlCLient;
+using MySql.Data.MySqlClient;
 using World;
 
 namespace World.Models
