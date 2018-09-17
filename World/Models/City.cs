@@ -9,6 +9,7 @@ namespace World.Models
     {
         private int _id;
         private string _cityName;
+        private List<City> _city;
 
         public City(string CityName, int Id=0)
         {
