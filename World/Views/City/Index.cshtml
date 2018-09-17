@@ -1,0 +1,11 @@
+<h3>Cities:</h3>
+
+<ol>
+  @foreach (var city in @Model)
+  {
+    <li><a href='city/@city.GetId()'>@city.GetCityName()</a></li>
+  }
+</ol>
+
+<p><a href =''>Add a new artist.</a></p>
+<p><a href ="/">Return to main page.</a></p>
